@@ -1,0 +1,136 @@
+1. Criar um cadastro no Android Studio.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade19 ao projeto e o br.iesb.ads023.atividade19 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade19). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activity através no menu File->New->Activity. Salve com o nome ListaActivity. Não esqueça de torná-la lancável (LAUNCHER).
+
+h) Abra o layout activity_lista.xml e acrescente um ListView e FloatActionButton. 
+
+i) Adicione uma Empty Activity através no menu File->New->Activity. Salve com o nome NovoActivity.
+
+j) Abra o layout activity_novo.xml e acrescente TextView, EditText e Button para criar os campos Nome e Telefone, e a opção Salvar.
+
+k) No método onCreate() da classe NovoActivity altere o título para Novo Contato e crie um ouvinte para o botão Salvar. Faça o ouvinte encerrar a activity (Dica: chamar o método finish()).
+
+l) No método onCreate() da classe ListaActivity altere o título para Contatos e crie um ouvinte para o botão FAB. Faça o ouvinte iniciar a NovoActivity.
+
+m) Execute o projeto através da opção 'Run app' e acione os botões.
+
+n) Pare a execução do projeto através da opção 'Stop app'.
+
+
+
+2. Salvar dados com Room.
+
+a) Inclua no arquivo build.gradle do módulo app a dependência ao pacote android.arch.persistence.room. Em seguida, acione o menu Build->Make Project.
+
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+    testImplementation 'android.arch.persistence.room:testing:1.1.1'
+}
+
+b) Crie uma classe Contato. Acrescente a anotação @Entity a classe.
+
+c) Defina os atributos id, nome e telefone. Acrescente a anotação @PrimaryKey(autoGenerate = true) ao id e @ColumnInfo(name="") aos demais atributos. Defina também o método toString() que deve retornar o atributo nome.
+
+@Entity
+data class Contato(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int = 0
+    @ColumnInfo(name = "nome")
+    val nome: String? = null
+    @ColumnInfo(name = "telefone")
+    val telefone: String? = null
+) {
+  override fun toString(): String {
+    return "$id - $nome - $telefone"
+}
+
+d) Crie uma interface ContatoDao. Acrescente a anotação @Dao a interface.
+
+@Dao
+interface ContatoDao {}
+
+e) Declare o método listar() do tipo List<Contato>. Acrescente a notação @Query ao método que deve executar a consulta SELECT * FROM contato.
+
+@Query("SELECT * FROM contato")
+fun listar(): List<Contato>
+
+f) Declare o método inserir() do tipo void recebendo um parâmetro contato do tipo Contato. Acrescente a anotação @Insert ao método.
+
+@Insert
+fun inserir(Contato contato)
+
+g) Declare o método alterar() do tipo void recebendo um parâmetro contato do tipo Contato. Acrescente a anotação @Update ao método.
+
+@Update
+fun inserir(Contato contato)
+
+h) Declare o método excluir() do tipo void recebendo um parâmetro contato do tipo Contato. Acrescente a anotação @Delete ao método.
+
+@Delete
+fun excluir(Contato contato)
+
+i) Crie uma classe abstrata ContatoBD e que estenda de RoomDatabase. Declare o método abstrato contatoDao() do tipo ContatoDao.
+
+public abstract class ContatoBD : RoomDatabase() {
+   abstract fun contatoDao(): ContatoDao
+}
+
+j) Acrescente a anotação @Database a classe contendo a entidade Contato.
+
+@Database(entities = arrayOf(Contato::class), version = 1, exportSchema = false)
+
+k) Crie um objeto singleton na classe ContatoBD. Defina um atributo privato instancia do tipo ContatoBD.
+
+companion object {
+        private var instancia: ContatoBD? = null
+}
+
+l) Dentro do objeto singleton declare o método getInstancia() do tipo ContatoBD que recebe um parâmetro contexto do tipo Context. Se o atributo instância for null crie uma instância chamado o método dataBaseBuilder da classe Room. 
+
+fun getInstancia(contexto: Context): ContatoBD? {
+   if (instancia == null) {
+     instancia = Room.databaseBuilder(contexto, ConexaoBD::class.java, "contato.db").allowMainThreadQueries().build()
+   } 
+   return instancia
+}
+
+m) No método onResume() da classe ListaActivity crie uma variavel bd inicializando com getInstancia(). Faça o ListView carregar os contatos do banco de dados chamando o método listar() do contatoDao. Crie um ArrayAdapter<Contato> e atribua ao ListView.
+    
+    val bd = ContatoBD.getInstancia(this)
+    val contatos = bd?.contatoDao()?.listar()
+    val listView = findViewById(R.id.listview)
+    val adapter = ArrayAdapter<Contato>(this, android.R.layout.simple_list_item1, (contato as List<Contato).toTypedArray())
+    listView.adapter = adapter
+
+n) No ouvinte OnClickListener definido na classe NovoActivity crie uma instância de Contato atribuindo os valores de cada campo ao respectivo atributo. 
+
+o) Chame o método inserir() de contatoDao passando o objeto contato.
+
+    val nome = findViewById(R.id.editText)
+    val telefone = findViewById(R.id.editText2)    
+    val contato = Contato(0, nome.text.toString(), telefone.text.toString())
+    val bd = ContatoBD.getInstancia(this)
+    bd?.contatoDao()?.inserir(contato)    
+
+p) Execute o projeto através da opção 'Run app' e insira novos contatos.
+
+q) Pare a execução do projeto através da opção 'Stop app' e execute novamente. Os contatos foram salvos?
+
+r) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+s) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando Atividade19". Acione a opção Commit.

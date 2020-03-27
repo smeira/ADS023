@@ -1,0 +1,186 @@
+1. Criar um formulário de login com Ionic e JavaScript.
+
+a) Abra o aplicativo VSCode.
+
+b) Crie uma pasta Atividade02 acionando a opção New Folder sobre a pasta ADS023.
+
+c) Crie um arquivo index.html acionando o menu New File com o botão direito sobre a pasta Atividade02.
+
+d) Digite a estrutura básica de uma página HTML5.
+
+e) Importe o CDN do Framework Ionic antes da tag </head>.
+
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css"/>
+
+f) Crie um elemento ion-app dentro do corpo da página. 
+
+g) Dentro do elemento ion-app crie um elemento ion-content. Atribua a propriedade padding para o elemento.
+
+h) Dentro do elemento ion-content crie um elemento ion-grid contendo um ion-row.
+
+<ion-grid>
+ <ion-row>
+ </ion-row>
+</ion-grid>
+
+i) Dentro do elemento ion-row crie um elemento ion-col. Atribua as propriedades size-md e offset-md para o elemento. 
+
+<ion-col size-md="4" offset-md="4"></ion-col>
+
+j) Dentro do elemento ion-col crie uma divisão, dois elementos ion-item e outra divisão. Atribua as propriedades margin-vertical e text-center para ambas divisões e a propriedade padding apenas para a segunda divisão.
+
+<div margin-vertical text-center></div>
+<ion-item></ion-item>
+<ion-item></ion-item>
+<div margin-vertical padding text-center></div>
+
+k) Dentro do primeira divisão adicione a logo vermelha do IESB e um titulo principal.
+
+<img src="logo_vermelha.png" alt="iesb">
+<h1> <ion-text><strong>aluno</strong></ion-text><ion-text color="medium"><strong>online</strong></ion-text></h1>
+
+l) Dentro do primeio elemento ion-item crie os elementos ion-label e ion-input para o campo Matrícula.
+
+<ion-label position="floating">Matrícula</ion-label>
+<ion-input type="number"></ion-input>
+
+m) Dentro do segundo elemento ion-item crie os elementos ion-label e ion-input para o campo Senha.
+
+<ion-label position="floating">Senha</ion-label>
+<ion-input type="password"></ion-input>
+
+n) Dentro da segunda divisão adicione um elemento ion-button. Atribua as propriedades color="danger" expand="block" e href="lista-requerimentos.html" para o elemento.
+
+<ion-button color="danger" expand="block" href="lista-requerimentos.html">Entrar</ion-button>
+
+o) Abra o arquivo index.hml no navegador Chrome. Ative as ferramentas do desenvolvedor pressionando a tecla F12 ou CTRL+SHIFT+I.
+
+p) Pressione as teclas Ctrl+Shift+M para ativar o modo de visualização em dispositivos móveis. Escolha um tamanho para visualizar a página.
+
+
+
+2. Criar uma página de lista de requerimentos com Ionic e JavaScript.
+
+a) Crie um arquivo lista-requerimentos.html acionando o menu New File com o botão direito sobre a pasta Atividade02.
+
+b) Digite a estrutura básica de uma página HTML5.
+
+c) Importe o CDN do Framework Ionic antes da tag </head>.
+
+d) Crie um elemento ion-app dentro do corpo da página. 
+
+e) Dentro do elemento ion-app crie um elemento ion-header e um elemento ion-content. Atribua a propriedade padding para o elemento.
+
+f) Dentro do elemento ion-header crie um elemento ion-toolbar. Atribua a propriedade color="danger" para o elemento.
+
+g) Dentro do elemento ion-toolbar crie um elemento ion-title e um elemento ion-buttons. Atribua a propriedade slot="end" para o elemento.
+
+<ion-title>Aluno Online</ion-title>
+<ion-buttons slot="end"></ion-buttons>
+
+h) Dentro do elemento ion-buttons crie um elemento ion-button. Atribua a propriedade href="index.html" para o elemento.
+
+i) Dentro do elemento ion-button crie um elemento ion-icon. Atribua a propriedade name="exit" para o elemento.
+
+j) Dentro do elemento ion-content crie um elemento ion-grid contendo um ion-row.
+
+k) Dentro do elemento ion-row crie um elemento ion-col. Atribua as propriedades size-md e offset-md para o elemento.
+
+<ion-col size-md="6" offset-md="3"></ion-col>
+
+l) Dentro do elemento ion-col crie um elemento ion-list.
+
+m) Dentro do elemento ion-list crie um elemento ion-list-header e dois elementos ion-item.
+
+n) Dentro do elemento ion-list-header crie um elemento ion-label. Atribua a propriedade text-wrap para o elemento.
+
+o) Dentro do lemento ion-list crie um título e um parágrafo. 
+
+<h2><strong>Seus requerimentos</strong></h2>
+<p>Análise e Desenvolvimento de Sistemas - 20191</p>
+
+p) Dentro do primeiro elemento ion-item crie um elemento ion-label e um elemento ion-icon para o requerimento da disciplina ADS023 - Programação para Dispositivos Móveis.
+
+<ion-label text-wrap>ADS023 - Programação para Dispositivos Móveis / A1</ion-label>
+<ion-icon name="checkmark-circle" color="success" slot="end"></ion-icon>
+
+q) Dentro do segundo elemento ion-item crie um elemento ion-label e um elemento ion-icon para o requerimento da disciplina RCT024 - Gerência de Projetos.
+
+<ion-label text-wrap>RCT024 - Gerência de Projetos / A2</ion-label>
+<ion-icon name="close-circle" color="danger" slot="end"></ion-icon>
+
+r) Adicione após o elemento ion-grid um elemento ion-fab. Atribua as propriedades vertical="bottom" horizontal="end" slot="fixed" para o elemento.
+
+s) Dentro do elemento ion-fab adicione um elemento ion-fab-button. Atribua as propriedades href="novo-requerimento.html" color="danger" para o elemento.
+
+t) Dentro do elemento ion-fab-button crie um elemento ion-icon. Atribua a propriedade name="add" ao elemento.
+
+u) Abra o arquivo lista-requerimentos.hml no navegador Chrome. Ative as ferramentas do desenvolvedor pressionando a tecla F12 ou CTRL+SHIFT+I.
+
+v) Pressione as teclas Ctrl+Shift+M para ativar o modo de visualização em dispositivos móveis. Escolha um tamanho para visualizar a página.
+
+
+
+3. Criar uma página de novo com Ionic e JavaScript.
+
+a) Crie um arquivo novo-requerimento.html acionando o menu New File com o botão direito sobre a pasta Atividade02.
+
+b) Digite a estrutura básica de uma página HTML5.
+
+c) Importe o CDN do Framework Ionic antes da tag </head>.
+
+d) Crie um elemento ion-app dentro do corpo da página. 
+
+e) Dentro do elemento ion-app crie um elemento ion-header e um elemento ion-content. Atribua a propriedade padding para o elemento.
+
+f) Dentro do elemento ion-header crie um elemento ion-toolbar. Atribua a propriedade color="danger" para o elemento.
+
+g) Dentro do elemento ion-toolbar crie um elemento ion-buttons, um elemento ion-title e outro elemento ion-buttons. Atribua a propriedade slot="start" para o primeiro ion-buttons e a propriedade slot="end" para o segundo ion-buttons.
+
+<ion-buttons slot="start"></ion-buttons>
+<ion-title>Novo</ion-title>
+<ion-buttons slot="end"></ion-buttons>
+
+h) Dentro do primeiro ion-buttons crie um elemento ion-button. Atribua a propriedade href="lista-requerimentos.html" para o elemento.
+
+i) Dentro do elemento ion-button crie um elemento ion-icon. Atribua a propriedade name="arrow-back" para o elemento.
+
+j) Dentro do segundo ion-buttons crie um elemento ion-button contendo o texto Salvar. Atribua a propriedade href="lista-requerimentos.html" para o elemento.
+
+k) Dentro do elemento ion-content crie um elemento ion-grid contendo um ion-row.
+
+l) Dentro do elemento ion-row crie um elemento ion-col. Atribua as propriedades size-md e offset-md para o elemento.
+
+<ion-col size-md="6" offset-md="3"></ion-col>
+
+m) Dentro do elemento ion-col crie três elementos ion-item.
+
+n) Dentro do primeiro ion-item crie um elemento ion-label e um elemento ion-select para o campo Disciplina.
+
+<ion-label position="floating">Disciplina</ion-label>
+<ion-select size-lg placeholder="Selecione uma">
+  <ion-select-option value="ADS023">ADS023 - Programação para Dispositivos Móveis></ion-select-option>
+  <ion-select-option value="RCT024">RCT024 - Gerência de Projetos</ion-select-option></ion-select>
+  
+o) Dentro do segundo ion-item crie um elemento ion-label e um elemento ion-select para o campo Avaliação.
+
+<ion-label position="floating">Avaliação</ion-label>
+<ion-select placeholder="Selecione uma">
+  <ion-select-option value="A1">A1</ion-select-option>
+  <ion-select-option value="A2">A2</ion-select-option>
+  <ion-select-option value="A3">A3</ion-select-option>
+</ion-select>
+
+p) Dentro do terceiro ion-item crie um elemento ion-label e um elemento ion-textarea para o campo Argumentação.
+
+q) Abra o arquivo novo-requerimento.hml no navegador Chrome. Ative as ferramentas do desenvolvedor pressionando a tecla F12 ou CTRL+SHIFT+I.
+
+r) Pressione as teclas Ctrl+Shift+M para ativar o modo de visualização em dispositivos móveis. Escolha um tamanho para visualizar a página.
+
+s) Pressione as teclas Ctrl+Shift+G para acessar o painel do Git. Em seguida, clique em Stage All.
+
+t) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade02).
+
+u) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

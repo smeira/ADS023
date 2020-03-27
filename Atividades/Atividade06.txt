@@ -1,0 +1,75 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade06 usando o template em branco.
+
+d) Execute o projeto criado.
+
+e) Abra outro terminal no VSCode.
+
+
+
+2. Criar um menu lateral com o Ionic.
+
+a) Crie uma página chamada menu.
+
+b) Crie uma página chamada opcoes.
+
+c) Faça a página menu ser exibida através da rota raiz.
+
+d) Altere o conteúdo da página menu para conter um ion-menu e um ion-router-outlet.
+
+e) Atribua a propriedade contentId ao menu o valor main-menu. Faça o router referenciar o menu pela proriedade id.
+
+f) Dentro do menu adicione um ion-header e um ion-content.
+
+g) Dentro do cabeçalho do menu adicione um ion-toolbar. Atribua a cor primary.
+
+h) Dentro da barra de ferramenta adicione um ion-title Menu.
+
+i) Dentro do conteúdo do menu crie um ion-menu-toggle para a página home. Utilize um ion-item para representar o item de menu Home contendo a propriedade routerLink para a rota '/home'. Inclua no item de menu o ion-icon home.
+
+j) Dentro do conteúdo do menu crie um ion-menu-toggle para a página opcoes. Utilize um ion-item para representar o item de menu Opções contendo a propriedade routerLink para a rota '/opcoes'. Inclua no item de menu o ion-icon settings.
+
+k) Altere o conteúdo da página home para conter um ion-header e um ion-content.
+
+l) Adicione no cabeçalho da página home um ion-toolbar e um ion-title Home. 
+
+m) Adicione na barra de ferramentas da página home um ion-menu-button. Faça ele ser exibido na esquerda através da propriedade slot.
+    
+n) Altere o conteúdo da página opcoes para conter um ion-header e um ion-content.
+
+o) Adicione no cabeçalho da página opcoes um ion-toolbar e um ion-title Home. 
+
+p) Adicione na barra de ferramentas da página opcoes um ion-menu-button. Faça ele ser exibido na esquerda através da propriedade slot.   
+
+q) No navegador acione os itens de menu para navegar entre as páginas. Qual foi o resultado? 
+
+r) Adicione na página menu um ion-split-pane. Faça esse elemento englobar o ion-menu e o ion-router-outlet.
+
+s) Recarregue a página menu no navegador simulando a tela de um tablet. Qual foi o resultado? 
+
+
+
+3. Acionar o menu utilizando um MenuController.
+
+a) Adicione no conteúdo da página home um ion-menu-toggle.
+
+b) Adicione no toggle um ion-button. Atribua o texto Toggle Menu.
+
+c) Adicione no conteúdo da página home um ion-button. Atribua o texto Abrir Menu. Atribua a propriedade (click) com o valor openMenu().
+
+d) Injete no construtor da classe HomePageModule um atributo privado menuCtrl do tipo MenuControle. 
+
+e) Dentro da classe HomePageModule declare o método openMenu(). Faça o método exibir o menu pelo menuCtrl.
+
+this.menuCtrl.open('menu-main)
+
+f) No navegador acione os botoes para acessar o menu. Qual foi o resultado? 
+
+g) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade06).
+
+h) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

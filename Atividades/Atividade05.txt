@@ -1,0 +1,149 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade05 usando o template em branco.
+
+d) Execute o projeto criado.
+
+e) Abra outro terminal no VSCode.
+
+
+
+2. Simular a navegação de páginas no Ionic.
+
+a) Crie uma página chamada login.
+
+b) Faça a página login ser exibida através da rota raiz (Dica: alterar a propriedade redirectTo da rota '' no arquivo app-routing.module.ts).
+
+c) Adicione na página login um ion-button ENTRAR para acessar a página home. Atribua a diretiva [routerLink] o valor '/home'. 
+
+d) Adicione na página home um ion-button SAIR para acessar a página login. Atribua a diretiva [routerLink] o valor ''.
+
+e) No navegador acione os botões para acessar as páginas da aplicação. Qual foi o resultado? 
+
+f) Crie uma página chamada detalhes.
+
+g) Adicione na barra de ferramentas da página detalhes um ion-back-button.
+
+h) Adicione um parâmetro id na rota '/detalhes'.
+
+i) Adicione na página home um io-button DETALHES para acessar página detalhes. Atribua a diretiva [routerLink] o valor '/detalhes/42'.
+
+j) No navegador acione os botões para navegar entre as páginas. Qual foi o resultado? 
+
+k) Adicione na página detalhes um ion-label para exibir o valor do parâmetro id (Dica: use a interpolação {{ id }}).
+
+l) Adicione na classe DetalhesPageModule um atributo id inicializando com null.
+
+m) Injete no construtor da classe DetalhesPageModule um atributo privado activatedRoute do tipo ActivatedRoute. 
+
+n) No método ngOnInit() faça o atributo id receber o valor do parâmetro da rota.
+
+this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
+o) No navegador acione os botões para navegar entre as páginas. Qual foi o resultado? 
+
+
+
+3. Simular a navegação de abas no Ionic.
+
+a) Adicione uma página abas ao projeto.
+
+b) Altere o conteúdo do arquivo abas.page.html para usar o Tabs Layout.
+
+c) Adicione as páginas aba1, aba2 e aba3 sendo filhas de abas (Dica: informar a pasta abas no nome da página).
+
+d) Declare uma constante routes do tipo Routes no módulo abas.module.ts. Inicialize com um array vazio.
+
+const routes: Route = [];
+
+e) Adicione uma rota para a página abas. Ela deve carrgar o componente AbasPage e ter rotas filhas.
+
+{
+  path: 'abas',
+  component: AbasPage,
+  children: []
+},
+
+f) Defina as rotas filhas para as páginas aba1, aba2 e aba3 dentro da rota 'abas'. Cada uma deve ter rotas filhas.
+
+{
+  path: 'aba1',
+  children: []
+},
+{
+  path: 'aba2',
+  children: []
+},
+{
+  path: 'aba2',
+  children: []
+}
+
+g) Defina uma rota filha dentro da rota aba1. Ela deve carregar o módulo da página aba1.
+
+{
+  path: '',
+  loadChildren: '../abas/aba1.module#Aba1PageModule'
+}
+
+h) Defina uma rota filha dentro da rota aba2. Ela deve carregar o módulo da página aba2.
+
+i) Defina uma rota filha dentro da rota aba3. Ela deve carregar o módulo da página aba3.
+
+j) Adicione uma rota raiz dentro de routes. Ela deve ser redirecionada para a aba1.
+
+{
+    path: '',
+    redirectTo: '/abas/aba1',
+    pathMatch: 'full'
+}
+
+k) Faça o módulo abas.module.ts carregar a constante routes.
+
+RouterModule.forChild(routes)
+
+l) Adicione na página home um ion-button ABAS para acessar a página abas. Atribua a diretiva [routerLink] o valor '/abas'.
+
+m) No navegador acione os botões para navegar entre as páginas. Qual foi o resultado? 
+
+
+
+4. Criar guarda de rota no Ionic.
+
+a) Crie um servico chamado auth (Dica: ionic generate service auth).
+
+b) Dentro da classe AuthService declare o atributo estático autenticado inicializando com false (Dica: static autenticado: boolean = false;).
+
+c) Dentro da classe AuthService declare o método login(). Faça ele alterar o atributo autenticado para true.
+
+d) Dentro da classe AuthService declare o método logout(). Faça ele alterar o atributo autenticado para false.
+
+e) Dentro da classe AuthService declare o método isAutenticado(). Faça ele retornar o valor do atributo autenticado.
+
+f) Crie um guarda chamado auth (Dica: ionic generate guard auth).
+
+g) Faça a classe AuthGuard implementar a interface CanActivate. 
+
+h) Injete no construtor da classe AuthGuard um atributo privado authService do tipo AuthService.
+
+i) Implemente o método canActivate() para que ele retorne o resultado da chamada ao método isAutenticado() de authService.
+
+j) Altere as rotas '/home', '/detalhes' e 'abas' para checarem o guarda AuthGuard (Dica: acrescente a propriedade canActivate: [AuthGuard]).
+
+k) Injete no construtor da classe LoginPage um atributo privado authService do tipo AuthService.
+
+l) No método ngOnInit() da classe LoginPage chame o método logout() de authService.
+
+m) Injete no construtor da classe HomePage um atributo privado authService do tipo AuthService.
+
+n) No método ngOnInit() da classe HomePage chame o método login() de authService.
+
+o) No navegador acione os botões para navegar entre as páginas. Qual foi o resultado? 
+
+p) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade05).
+
+q) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

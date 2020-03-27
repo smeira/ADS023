@@ -1,0 +1,74 @@
+1. Criar um menu de opções no Android.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade13 ao projeto e o br.iesb.ads023.atividade13 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade13). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activity. Torne-a uma Launcher Activity e salve com o nome MainActivity. 
+
+h) No menu File->New->Android Resource File crie um arquivo de recurso de menu na pasta res/menu com o nome de main_menu.xml. Ele deve conter as opções Faltas, Notas, Requerimentos.
+
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@+id/faltas"
+        android:title="Faltas" />
+  <item android:id="@+id/notas"
+        android:title="Notas" />
+  <item android:id="@+id/requerimentos"
+        android:title="Requerimentos" />
+</menu>
+
+i) Implemente o método onCreateOptionsMenu() na classe MainActivity. Faça ele inflar o arquivo de recurso de menu através do método MenuInflater.inflate().
+
+override fun onCreateOptionsMenu(menu: Menu): Boolean {
+   val inflater = menuInflater
+   inflater.inflate(R.menu.main_menu, menu)
+   return true
+}
+
+j) Execute o projeto através da opção 'Run app' e observe o resultado.
+
+k) Adicione mais três Empty Activity. Salve-as com o nome NotaActivity, FaltaActivity e RequerimentoActivity. 
+
+l) No método onCreate() de cada classe altere o título da activity para "Notas", "Faltas" e "Requerimentos".
+
+m) No método onOptionsItemSelected da classe MainActivity faça cada item de menu exibir a activity correspondente.
+
+override fun onOptionsItemSelected(item: MenuItem): Boolean {
+   when (item.getItemId()) {
+      R.id.notas -> {
+         val intencao = Intent(this@MainActivity, NotaActivity::class.java)
+         startActivity(intencao)
+         return true
+      }
+      R.id.faltas -> {
+         val intencao = Intent(this@MainActivity, FaltaActivity::class.java)
+         startActivity(intencao)
+         return true
+      }
+      R.id.requerimentos -> {
+         val intencao = Intent(this@MainActivity, RequerimentoActivity::class.java)
+         startActivity(intencao)
+         return true
+      }
+      else -> return super.onOptionsItemSelected(item)
+   }
+}
+
+n) Execute novamente o projeto e observe o resultado.
+
+o) Pare a execução do projeto através da opção 'Stop app'.
+
+p) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+q) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade13". Acione a opção Commit.
+
+r) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

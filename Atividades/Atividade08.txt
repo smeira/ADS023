@@ -1,0 +1,78 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade08 usando o template em branco.
+
+d) Execute o projeto criado.
+
+e) Abra outro terminal no VSCode.
+
+
+
+2. Criar uma notificação sutil usando Ionic
+
+a) Adicione no conteúdo da página um ion-item.
+
+b) Dentro do ion-item adicione um ion-label e um ion-toogle para ligar e desligar o Bluetooth. 
+
+c) Faça a propriedade checked do ion-toogle receber o valor do atributo statusBluetooth.
+
+d) Trate o evento click do ion-toogle para chamar a função ligaBluetooth() passando $event.target.value como parâmetro.
+
+e) Injete no construtor da classe HomePage um atributo privado toastCtrl do tipo ToastController.
+
+f) Declare um atributo statusBluetooth do tipo boolean inicializando com false.
+
+g) Dentro da classe HomePage declare um método ligaBluetooth() que recebe um parâmetro status do tipo boolean. 
+
+h) Faça o método ligaBluetooth() atualizar o atributo statusBluetooth com o parâmetro status e chamar um método exibaToast().
+
+i) Declare um método assíncrono exibeToast() (Dica: asyunc exibeToast()).
+
+j) Dentro do método exibeToast() declare uma constante msg que pode receber o valor "Bluetooth ligado" ou "Bluetooth desligado" dependendo do valor do atributo statusBluetooth.
+
+k) Ainda no método exibeToast() declare uma constante toast que deve receber um objeto Toast gerado pelo método create() de toast.Ctrl. Ela deve exibir a mensagem da constante msg e com a duração de 2000 milisegundos.
+
+const toast = await toastCtrl.create({
+  message: msg,
+  duration: 2000
+});
+
+l) Ainda no método exibeToast() chame método present() de toast.
+
+
+
+3. Criar um alerta usando Ionic.
+
+a) Injete no construtor da classe HomePage um atributo privado alertCtrl do tipo AlertController.
+
+b) Dentro da classe HomePage declare um método assíncrono exibeAlert().
+
+c) No método exibeAlert() declare uma constante alert que deve receber um objeto Alert gerado pelo método create alertCtrl. Ela deve questionar se o usuário quer ligar o Bluetooth do aparelho. Defina também os botões 'Cancel' e 'Okay' no alert.
+
+const alert = await alertCtrl.create({
+   header: 'Confirmação',
+   message: 'Deseja ligar o Bluetooth do aparelho?',
+   buttons: [{
+     text: 'Cancel'
+     handler: () => { }
+   }, {
+     text: 'Okay',
+     handler: () => { }
+   }]
+});
+
+d) Faça o botão Cancel atualizar o atributo statusBluetooth para false.
+
+e) Faça o botão Okay atualizar o atributo statusBluetooth para true e chamar o método exibeToast().
+
+f) Ainda no método exibeAlert() chame método present() de alert.
+
+g) Altere o método ligaBluetooth() para chamar o método exibeAlert() se o statusBluetooth for falso.
+
+h) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade08).
+
+i) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

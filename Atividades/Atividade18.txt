@@ -1,0 +1,108 @@
+1. Criar um RecyclerView no Android Studio.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade18 ao projeto e o br.iesb.ads023.atividade18 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade18). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activiy através no menu File->New->Activity. Salve com o nome RecyclerActivity.
+
+h) Adicione no layout da activity um RecyclerView (Dica: No modo Design do Android Studio, clique na seta para baixo ao lado do componente RecyclerView para importar as dependencias). Atribua à propriedade id o valor recyclerView. 
+
+i) No método onCreate() da classe RecyclerActivity altere o título da activity para "Recycler".
+
+j) Ainda no método onCreate() declare uma variável lista do tipo List<String> inicializando com os valores "Asa Sul", "Asa Norte", "Sudoeste", "Noroeste", "Lago Sul", "Lago Norte", "Aguas Claras", "Candangolandia", "Nucleo Bandeirantes", "Vicentes Pires", "Taguatinga", "Ceilandia" e "Samambaia".
+
+val lista: List<String> = listOf<String>("Asa Sul", "Asa Norte", "Sudoeste", "Noroeste", "Lago Sul", "Lago Norte", "Aguas Claras", "Candangolandia", "Nucleo Bandeirantes", "Vicentes Pires", "Taguatinga", "Ceilandia", "Samambaia")
+
+k) Também declareuma variável recyclerView localizando o componente RecyclerView do layout.
+
+val recyclerView = findViewById(R.id.recyclerView) as RecyclerView
+
+l) Adicione um Layout através do menu File->New->Android Resource File. Escolhe o tipo Layout e salve com o nome recycler_item.
+
+m) Adicione no layout recycler_item um TextView. Mude a propriedade textSize para 24sp.
+
+n) Execute o projeto. Qual foi o resultado? Pare a execução.
+
+
+
+2. Criar um Adapter no Android Studio.
+
+a) Adicione uma classe Kotlin através do menu File->New->Kotlin File/Class. Salve com o nome RecyclerAdapter.
+
+class RecyclerAdapter { }
+
+b) Dentro da classe RecyclerAdapter declare uma classe interna ViewHolder que herda de RecyclerView.ViewHolder.
+
+class RecyclerAdapter {
+    class ViewHolder: RecyclerView.ViewHolder()
+}
+
+c) Faça o construtor da classe ViewHolder receber um parametro View.
+
+class ViewHolder(view: View): RecyclerView.ViewHolder(view) { }
+
+d) Faça a classe RecyclerAdapter herdar da classe RecyclerView.Adapter passando como genérico a classe RecyclerAdapter.ViewHolder.
+
+class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() { }
+
+e) Implemente os métodos herdados da classe RecyclerView.Adapter (Dica: pressione CTRL+I e marque todos os métodos).
+
+ override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MeuAdapterRecycler.MyViewHolder {}
+ 
+ override fun onBindViewHolder(holder: MyViewHolder, position: Int) { }
+ 
+ override fun getItemCount() { }
+
+f) Acrescente ao construtor da classe RecyclerAdapter um atributo privado itens do tipo List<String> e um atributo privado contexto do tipo Context.
+
+class RecyclerAdapter(private val itens: List<String>, private val contexto: Context): ...
+
+g) Faça o método getItemCount() retornar o tamanho do atributo itens.
+
+override fun getItemCount() { 
+    return itens.size
+}
+
+h) Faça o método onCreateViewHolder() inflar o layout recycler_item retornando uma instância de ViewHolder.
+
+override fun onCreateViewHolder(...) {
+   val view = LayoutInflater.from(contexto).inflate(R.layout.recycler_item, parent, false)
+   return ViewHolder(view)
+}
+
+i) Faça o método onBindViewHolder atualizar a variável holder.view.textView com o valor de itens em uma determinada posição do RecyclerView.
+
+holder.view.textView.text = itens[position]
+
+j) No método onCreate() da classe RecyclerActivity, declare uma constante viewAdapter inicializando com RecyclerAdapter passando como parâemtros a lista e o contexto.
+
+val viewAdapter = RecyclerAdapter(lista, this)
+
+k) No método onCreate() da classe RecyclerActivity, declare uma constante viewManager inicializando com LinearLayoutManager.
+
+val viewManager = LinearLayoutManager(this)
+
+l) No método onCreate() dda classe RecyclerActivity, chame o método apply da variável recyclerView fazendo ele realizar as chamadas setHasFixedSize(true) e atualizar as variáveis layoutManager e adapter com os valores das constantes viewManager e viewAdapter.
+
+recyclerView.apply { 
+   setHasFixedSize(true)
+   layoutManager = viewManager
+   adapter = viewAdapter
+}
+
+m) Execute o projeto. Qual foi o resultado? Pare a execução.
+
+n) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+o) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade18". Acione a opção Commit.
+
+p) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

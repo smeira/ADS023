@@ -1,0 +1,271 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade04 usando o template em branco.
+
+d) Altere o conteúdo da home.page.html para exibir um lista não ordenada de sete links.
+
+<ion-content>
+  <h2>Tipos de Layout no Ionic</h2>
+  <ul>
+	<li><a href=""></a><li>
+        ...
+  </ul>
+</ion-content>
+
+e) Faça o primeiro link referenciar a página Header Layout.
+
+<a href="/header">Header Layout</a>
+
+f) Faça o segundo link referenciar a página Footer Layout.
+
+<a href="/footer">Footer Layout</a>
+
+g) Faça o terceiro link referenciar a página Tabs Layout.
+
+<a href="/tabs">Tabs Layout</a>
+
+h) Faça o quarto link referenciar a página Menu Layout.
+
+<a href="/menu">Menu Layout</a>
+
+i) Faça o quinto link referenciar a página Split Pane Layout.
+
+<a href="/split">Split Pane Layout</a>
+
+j) Faça o sexto link referenciar a página Grid Layout.
+
+<a href="/grid">Grid Layout</a>
+ 
+k) Faça o sétimo link referenciar a página List Layout.
+
+<a href="/list">List Layout</a>
+
+l) Execute o projeto com o comando serve.
+
+
+
+2. Trabalhar com Header/Footer Layout.
+
+a) Abra outro terminal no VSCode.
+
+b) Adicione uma página chamada header ao projeto.
+
+c) Altere o conteúdo do arquivo header.page.html para usar o Header Layout.
+
+<ion-header>
+</ion-header>
+
+<ion-content>
+</ion-content>
+
+d) Dentro do cabeçalho adicione uma barra de ferramenta. Defina a propriedade color como primary.
+
+<ion-toolbar color="primary">
+</ion-toolbar>
+
+e) Dentro da barra de ferramenta adicione um título. Atribua o texto "Título".
+
+<ion-title>Título</ion-title>
+
+f) Dentro do conteúdo adicione um parágrafo. Atribua o texto "Página criada com Header Layout".
+
+g) Adicione uma página footer ao projeto.
+
+h) Altere o conteúdo do arquivo footer.page.html para usar o Footer Layout.
+
+<ion-content>
+</ion-content>
+
+<ion-footer>
+</ion-footer>
+
+i) Dentro do conteúdo adicione um parágrafo. Atribua o texto "Página criada com Footer Layout".
+
+j) Dentro do rodapé adicione uma barra de ferramenta. Atribua a propriedade color como secondary. 
+
+k) Dentro da barra de ferramenta adicione um título. Atribua o texto "Título".
+
+
+
+3. Trabalhar com Tabs Layout
+
+a) Adicione uma página tabs ao projeto.
+
+b) Altere o conteúdo do arquivo tabs.page.html para usar o Tabs Layout.
+
+<ion-tabs>
+</ion-tabs>
+
+c) Dentro do leiaute adicione uma barra de abas. Atribua a propriedade slot como top e a propriedade color como tertiary.
+
+<ion-tab-bar slot="top" color="tertiary">
+</ion-tab-bar>
+
+d) Dentro do leiaute adicione um conteúdo com um parágrafo "Página criada com Tabs Layout."
+
+e) Dentro do leiaute adicione outra barra de abas. Atribua a propriedade slot como bottom e a propriedade color como tertiary. 
+
+<ion-tab-bar slot="botom" color="tertiary">
+</ion-tab-bar>
+
+f) Dentro da primeira barra adicione três botões de aba. 
+
+<ion-tab-button>
+</ion-tab-button>
+
+g) Dentro do primeiro botão adicione um rótulo "Aba 1".
+
+<ion-label>Aba 1</ion-label>
+
+h) Dentro do segundo botão adicione um rótulo "Aba 2". 
+
+i) Dentro do terceiro botão adicione um rótulo "Aba 3".
+
+j) Dentro da segunda barra adicione dois botões de aba.
+
+k) Dentro do primeiro botão adicione um rótulo "Aba 4" e um ícone (Dica: Procurar um ícone na página https://ionicons.com/).
+
+<ion-icon name="home"></ion-icon>
+<ion-label>Aba 4</ion-label>
+
+l) Dentro do segundo botão adicione um rótulo "Aba 5" e um ícone.
+
+
+
+4. Trabalhar com Menu Layout
+
+a) Adicione uma página menu ao projeto.
+
+b) Altere o conteúdo do arquivo menu.page.html para usar o Menu Layout.
+
+<ion-menu>
+</ion-menu>
+
+c) Dentro do leiaute adicione um cabecalho e um conteúdo.
+
+d) Dentro do cabeçalho adicione um barra de ferramenta. Atribua a propriedade color como success.
+
+e) Dentro da barra de ferramenta adicione um título "Menu".
+
+f) Dentro do conteúdo adicione três itens.
+
+<ion-item></ion-item>
+
+g) Adicione no primeiro item um ícone e um rótulo "Item 1".
+
+h) Adicione no segundo item um ícone e um rótulo "Item 2".
+
+i) Adicione no terceiro item um ícone e um rótulo "Item 3".
+
+j) Fora do leiaute adicione um cabecalho e um conteúdo.
+
+k) Dentro do cabeçalho adicione um barra de ferramenta. Atribua a propriedade color como warning.
+
+l) Adicione na barra de ferramenta um botão de menu. Atribua a propriedade slot como start.
+
+<ion-menu-button slot="start"></ion-menu-button>
+
+m) Adicione no conteúdo um parágrafo "Página criada com Menu Layout".
+
+n) Entre o menu layout e o cabeçalho adicione um elemento ion-router-outler.
+
+<ion-router-outlet main></ion-router-outlet>
+
+
+
+5. Trabalhar com Split Pane Layout
+
+a) Adicione uma página split ao projeto.
+
+b) Altere o conteúdo do arquivo split.page.html para usar o Split Pane Layout.
+
+<ion-split-pane>
+</ion-split-pane>
+
+c) Dentro do leiaute adicione um menu e um conteúdo.
+
+d) Dentro do menu adicione um cabeçalho e um conteúdo.
+
+e) Dentro do cabeçalho adicione uma barra de ferramenta. Atribua a propriedade color como danger.
+
+f) Dentro da barra adicione um título. Atribua o texto "Painel Lateral".
+
+g) Dentro do conteúdo adicione três itens. Faça cada item ter um rótulo.
+
+h) Dentro do conteúdo fora do menu adicione um cabeçalho e um parágrafo.
+
+i) Dentro do cabeçalho adicione uma barra de ferramenta. Atribua a propriedade color como light.
+
+j) Dentro da barra adicione um título. Atribua o texto "Painel Principal".
+
+k) Atribua ao parágrafo o texto "Página criada com Split Pane Layout".
+
+l) Atribua a propriedade main ao conteudo fora do menu.
+
+
+
+6. Trabalhar com Grid Layout
+
+a) Adicione uma página grid ao projeto.
+
+b) Altere o conteúdo do arquivo grid.page.html para usar o Grid Layout.
+
+<ion-grid>
+</ion-grid>
+
+c) Adicione no grid uma linha e uma coluna.
+
+<ion-row>
+   <ion-col></ion-col>
+<ion-row>
+
+d) Dentro da coluna adicione uma barra de ferramenta. Atribua a propriedade color como medium.
+
+e) Dentro da barra adicione um título. Atribua o texto "Título".
+
+f) Adicione no grid outra linha com um coluna.
+
+g) Dentro da coluna adicione um parágrafo. Atribua o texto "Página criada com Grid Layout".
+
+h) Adicione no grid uma linha com duas colunas. Atribua na primeira coluna o texto "1 de 2" e na segunda "2 de 2".
+
+i) Adicione no grid uma linha com três colunas. Atribua na primeira coluna o texto "1 de 3", na segunda "2 de 3" e na terceira "3 de 3".
+
+j) Adicione no grid uma linha com quatro colunas. Atribua na primeira coluna o texto "1 de 4", na segunda "2 de 4", na terceira "3 de 4" e na quarta "4 de 4".
+
+k) Adicione no grid uma linha com cinco colunas. Atribua na primeira coluna o texto "1 de 5", na segunda "2 de 5", na terceira "3 de 5", na quarta "4 de 5" e na quinta "5 de 5".
+
+l) Atribua a propriedade fixed ao grid.
+
+
+
+7. Trabalhar com List Layout
+
+a) Adicione uma página list ao projeto.
+
+b) Altere o conteúdo do arquivo list.page.html para usar o List Layout.
+
+<ion-list>
+</ion-list>
+
+c) Dentro do leiaute adicione uma barra de ferramenta. Atribua a propriedade color como dark.
+
+d) Dentro da barra adicione um título. Atribua o texto Título.
+
+e) Dentro do leiaute adicione um cabeçalho de lista.
+
+f) Dentro do cabeçalho adicione um rótulo. Atribua o texto "Página criada com List Layout".
+
+g) Dentro do leiaute adicione 15 itens.
+
+h) Faça cada item receber o texto "Item n", onde n é o numero do item.
+
+i) Envolva o leiaute dentro de um conteúdo.
+
+j) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade04).
+
+k) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

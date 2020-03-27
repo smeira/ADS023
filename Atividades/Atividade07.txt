@@ -1,0 +1,113 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade07 usando o template em branco.
+
+d) Execute o projeto criado.
+
+e) Abra outro terminal no VSCode.
+
+
+
+2. Criar um formulário com os componentes visuais do Ionic.
+
+a) Crie uma página chamada contato.
+
+b) Faça a página contato ser exibida através da rota raiz.
+
+c) Atribua o título Novo contrato para pagina contato.
+
+d) Adicione no contéudo da página um rótulo e um input para o nome do contato (Dica: utilize os componentes ion-item, ion-label e ion-input).
+
+e) Adicione no contéudo da página um rótulo e um input para o email do contato.
+
+f) Adicione no conteúdo da página um rótulo e um radio (Masculino ou Feminino) para o sexo do contato (Dica: utilize os componentes ion-item, ion-label, ion-radio e ion-radion-group).
+
+g) Adicione no conteúdo da página um rótulo e dois selects sendo um para listar os dias e outro os meses para a data de aniversário (Dica: utilize os componentes ion-item, ion-label, ion-select e ion-select-option).
+
+h) Adicione no contéudo da página um rótulo e um input para o telefone do contato.
+
+i) Adicione no conteúdo da página um rótulo e um checkbox para indicar que é um contato favorito (Dica: utilize os componentes ion-item, ion-label, ion-checkbox). Inicialmente, deixe o checkbox marcado.
+
+j) Adicione no conteúdo da página um botão Salvar (Dica: utilize o componente ion-button).
+
+k) Adicione na classe ContatoPage o método salvar().
+
+l) Faça o método salvar() emitir um alert com a mensagem Contato salvo!.
+
+m) Faça o botão Salvar acionar método salvar() da classe ContatoPage através do event binding click.
+
+
+
+3. Criar um formulário reativo no Ionic.
+
+a) Na classe ContatoPageModule troque a importação do módulo FormsModule por ReactiveFormsModule.
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+@NgModule({
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ...
+  ],
+  declarations: [ContatoPage]
+})
+  
+b) Na classe ContatoPage declare um atributo formulario do tipo FormGroup.
+
+formulario: FormGroup;
+
+c) No método ngOnInit() da classe ContatoPage inicialize o atributo formulario com uma instância de FormGroup.
+
+this.formulario = new FormGroup({});
+
+d) No construtor do FormGroup adicione um FormControl para cada campo da página contato. Atribua o valor inicial para cada campo conforme exigido pela página.
+
+this.formulario = new FormGroup({
+   nome: new FormControl(null), 
+   email: new FormControl(null),
+   ...
+   favorito: new FormControl(true)
+});
+
+e) Na página contato envolva os campos em um formulário reativo.
+
+f) Faça a ligação do form com o atributo formulario da classe ContatoPage (Dica: atribua a property bind [formGroup]="formulario").
+
+g) Faça a ligação dos input da página contato com cada campo do atributo formulario (Dica: atributa a propriedade formControlName em cada input).
+
+
+
+4. Validando um fomulário reativo no Ionic
+
+a) Atribua o validador padrão required aos campos Nome, Email e Telefone.
+
+b) Atribua a property bind [disable]="!formulario.valid()" ao botão Salvar.
+
+c) Atribua o validador padrão minLenght ao campo nome para que tenha no mínimo 5 caracteres.
+
+d) Atribua o validador padrão pattern com a string '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$' para validar o formato do email.
+
+e) Declare na classe ContatoPage um atributo mensagens_validacao inicializando um objeto JS.
+
+mensagens_validacao = {}
+
+f) Adicione no atributo mensagens_validacao uma propriedade que represente a mensagem de validação de um dado campo (Dica: combine o nome do campo com o nome do validador)
+
+nome_required: 'Nome é obrigatório',
+nome_minlenght: 'Nome deve conter no mínimo 5 caracteres',
+...
+
+g) Adicione após cada ion-item da página Contato um ion-note para exibir a mensagem de validação se houver um erro no formulário.
+
+<ion-note padding color="danger" *ngIf="fomulario.get('nome').hasError('required') && (formulario.get('nome').dirty || fomulario.get('nome').touched)">
+   <ion-icon name="information-circle-outline"></ion-icon>{{ mensagens_validacao.nome_required }}
+</ion-note>
+
+h) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade07).
+
+i) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

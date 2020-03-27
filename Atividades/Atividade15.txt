@@ -1,0 +1,137 @@
+1. Criar a activity ListaRequirimento para app AlunoOnline.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade15 ao projeto e o br.iesb.ads023.atividade15 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade15). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activiy através no menu File->New->Activity. Salve com o nome ListaRequerimentoActivity.
+
+h) Aba o arquivo de layout activity_lista_requerimento no modo de Design.
+
+i) Altere o layout para RelativeLayout.
+
+j) Crie uma tela de listagem de requerimentos acrescentando os widgets ListView e FloatActionButton.
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"        
+        android:clickable="true" />
+
+k) Alterar método onCreate para carregar uma lista de requerimentos.
+
+val requerimentos = arrayOf("Req 001", "Req 002", "Req 003", "Req 004")
+val adapter = ArrayAdapter(this, android.R.layout.simple_list_item1, requerimentos)
+val listview = findViewById(R.id.listview) as ListView
+listview.setAdapter(adapter)
+
+l) Registre no arquivo AndroidManifest.xml para ListaRequerimentoActivity ser a atividade principal.
+
+m) Altere o titulo da activity para Seus Requerimentos.
+
+n) Execute o projecto através da opção 'Run app'. 
+
+o) Pare a execução do projeto através da opção 'Stop app'.
+
+
+
+2. Criar a activity NovoRequerimento para AlunoOnline.
+
+a) Adicione uma Empty Activiy através no menu File->New->Activity. Salve com o nome NovoRequerimentoActivity.
+
+b) Aba o arquivo de layout activity_novo_requerimento no modo de Design.
+
+c) Altere o layout para LinearLayout.
+
+d) Crie uma tela de cadastro de requerimentos acrescentando os widgets TextView, Spinner, EditText, e Button para criar os campos Disciplina, Prova e Requerimento e a opção Salvar.
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Disciplina" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Prova" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Requerimento" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inputType="textMultiLine"
+        android:text="" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar" />
+
+e) Acrescente no arquivo res/strings.xml um array de discipinas e outro de provas.
+
+<string-array name="disciplinas">
+  <item>ADS023 - Programação para Dispositivos Móveis</item>
+  <item>RCT024 - Gerência de Projetos</item>
+</string-array>
+
+<string-array name="provas">
+  <item>P1</item>
+  <item>P2</item>
+  <item>P3</item>  
+</string-array>
+
+f) Acrescente o atributo android:entries aos elementos Spinner.
+
+ android:entries="@array/disciplinas"
+ 
+ android:entries="@array/provas"
+
+g) Registre no arquivo AndroidManifest.xml para NovoRequerimentoActivity ser a atividade principal.
+
+h) Altere o titulo da activity para Novo Requerimento.
+
+i) Execute o projeto através da opção 'Run app' e observe o resultado.
+
+j) Pare a execução do projeto através da opção 'Stop app'.
+
+k) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+l) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade15". Acione a opção Commit.
+
+m) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

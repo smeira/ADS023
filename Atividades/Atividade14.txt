@@ -1,0 +1,88 @@
+1. Trabalhar com LinearLayout no Android.
+
+a) Abra o aplicativo Android Studio. 
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade14 ao projeto e o br.iesb.ads023.atividade14 ao pacote. Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade14). 
+
+d) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+e) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+f) Adicione uma Empty Activity. Torne-a uma Launcher Activity e salve com o nome LinearActivity. 
+
+g) Abra o arquivo activity_linear.xml no modo Design. Deixe visível apenas as janelas Palette, Component Tree e Atributtes do Android Studio. Selecione no botão Design Surface as telas de Design + Blueprints.
+
+h) Na janela Component Tree mude o layout de Constraint para Linear (Dica: clique com o botão direito sobre ConstraintLayout, selecione Convert view... e depois LinearLayout).
+
+i) Na janela Attributes mude as propriedades layout_width e layout_height para match_parent, a propriedade orientation para vertical.
+
+j) Adicione um componente TextView ao LinearLayout (Dica: clique em Common na janela Palette, selecione TextView e arraste para o linearLayout). Mude a propriedade textSize para 50sp e a propriedade layout_marginBottom para 8dp. Apague o valor da propriedade text.
+
+k) Adicione um LinearLayout (vertical) ao LinearLayout (Dica: clique em Layouts na janela Palette, selecione LinearLayout (vertical) arraste para o linearLayout). Mude as propriedades layout_width e layout_height para match_parent.
+
+l) Adicione cinco LinearLayout (horizontal) ao LinearLayout (vertical). Mude a propriedade layout_height para wrap_content de todos eles. Mude a propriedade laytou_margimTop para 8dp apenas no último LinearLayout (horizontal).
+
+m) Adicione três Button em cada LinearLayout (horizontal) de modo a criar um discador do telefone. Mude a propriedade layout_width para 80dp, a propriedade layout_height para 70dp e a propriedade textSize para 40sp. Mude a propriedade a propriedade text para X, onde X é um dos dígitos do telefone.
+
+1 2 3
+4 5 6
+7 8 9
+* 0 #
+
+n) Adicione dois Button no último LinearLayout (horizontal) para serem as opções Discar e Encerrar. Mude as propriedades layout_width e layout_height para wrap_content, e a propriedade textSize para 24sp de ambos.
+
+o) Execute o projeto através da opção 'Run app' e observe o resultado.
+
+p) Pare a execução do projeto através da opção 'Stop app'.
+
+
+
+2. Trabalhar com ConstraitLayout no Android.
+
+a) Adicione uma Empty Activity. Torne-a uma Launcher Activity e salve com o nome ConstraintActivity. 
+
+b) Abra o arquivo activity_constraint.xml no modo Design. Deixe visível apenas as janelas Palette, Component Tree e Atributtes do Android Studio. Selecione no botão Design Surface as telas de Design + Blueprints.
+
+c) Adicione um componente TextView ao ConstraintLayout. Mude a propriedade textSize para 50sp. Ligue o componente ao topo, à esquerda e à direita do layout. Atribua o valor 8 margem em cada ligação. Mude o tipo de ligação da esquerda e da direita de Wrap Content para Match Constraint (Dica: clique em >> até mudar para |-w-|) Apague o valor da propriedade text. 
+
+d) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do TextView e à esquerda do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 1.
+
+e) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do TextView e à esquerda do botão 1. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 2.
+
+f) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do TextView, à esquerda do botão 2 e à direita do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 3.
+
+g) Adicione um componente Button ao ContraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 1, à esquerda do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 4.
+
+h) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 2 e à esquerda do botão 3. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 5.
+
+i) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 3, à esquerda do botão 2 e à direita do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 6.
+
+j) Adicione um componente Button ao ContraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 4, à esquerda do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 7.
+
+k) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 5 e à esquerda do botão 7. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 8.
+
+l) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 6, à esquerda do botão 8 e à direita do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 9.
+
+m) Adicione um componente Button ao ContraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 7, à esquerda do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para *.
+
+n) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 8 e à esquerda do botão *. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para 0.
+
+o) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão 9, à esquerda do botão 0 e à direita do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para #.
+
+p) Adicione um componente Button ao ContraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão *, à esquerda do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para Discar.
+
+q) Adicione um componente Button ao ConstraintLayout. Mude a propriedade textSize para 40sp. Ligue o componente à base do botão #, à esquerda do botão Discal e à direita do layout. Atribua o valor 8 a margem em cada ligação. Mude o tipo de ligação da esquerda para Match Constraint. Mude o valor da propriedade text para Encerrar.
+
+r) Selecione todos os botões. Acione o botão Pack e escolha a opção <-> Expand Horizontally.
+
+s) Execute o projeto através da opção 'Run app' e observe o resultado.
+
+t) Pare a execução do projeto através da opção 'Stop app'.
+
+u) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+v) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade14". Acione a opção Commit.
+
+x) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

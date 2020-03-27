@@ -1,0 +1,59 @@
+1. Criar um formulário no Android Studio.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade17 ao projeto e o br.iesb.ads023.atividade17 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade17). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activiy através no menu File->New->Activity. Salve com o nome ContatoActivity.
+
+h) Atribua o título Novo contato para ContatoActivity.
+
+i) Adicione no layout da activity um rótulo (TextView) e um input (PlainText) para o nome do contato (Dica: utilize o recurso de string para cadatrar o texto do rótulo).
+
+j) Adicione no layout da activity um rótulo e um input para o email do contato.
+
+k) Adicione no layout da activity um rótulo e um radio (Masculino ou Feminino) para o sexo do contato (Dica: utilize o recurso de string para cadastrar os itens do rádio).
+
+l) Adicione no layout da activity um rótulo e um datepicker para data de nascimento.
+
+m) Adicione no layout da activity um rótulo e um input para o telefone do contato.
+
+n) Adicione no layout da activity um botão Salvar.
+
+o) Adicione um método salvar() na classe ContatoActivity. Faça o método salvar() emitir um alert com a mensagem "Contato salvo!".
+
+p) Adicione um ouvinte onClickListener ao botão. Faça o ouvinte chamar o método salvar().
+
+r) Execute o projeto, preecha o formulário e pressione o botão. Qual foi o resultado? Pare a execução.
+
+
+
+2. Validar um fomulário no Android Studio.
+
+a) Adicione um método validar() do tipo boolean na classe ContatoActivity. Declare uma variável ok do tipo boolean inicializando com true.
+
+b) Faça o método validar() checar se os campos Nome, Email e Telefone foram preenchidos. Se não for faça exibir a mensagem de erro Campo é obrigatório e atribua falso a variável ok (Dica: declare a mensagem no recurso de string e atribua a propriedade error do campo Nome). 
+
+c) Faça o método validar() checar se o campo Nome tenha no mínimo no mínimo 5 caracteres. Se não tiver faça exibir a mensagem de erro Campo deve conter pelo menos 5 caracteres e atribua falso a variável ok.
+
+d) Faça o método validar() chegar se o campo Email tem o formato '^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$' (Dica: utilize a classe Pattern para validar o campo). Se não tiver faça exibir a mensagem de erro Formato inválido! e atribua falso a variável ok.
+
+e) Faça o método validar() retornar a variável ok (Dica: return@validar ok).
+
+f) Chame o método validar() no método salvar(). Se o método validar() for verdadeiro exibir o alerta do método salvar().
+
+g) Execute o projeto, preecha o formulário com erros de validação e pressione o botão. Qual foi o resultado? Pare a execução.
+
+h) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+i) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade17". Acione a opção Commit.
+
+j) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

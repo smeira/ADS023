@@ -1,0 +1,86 @@
+1. Tratar eventos onClick, onLongClick e onTouch.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Add No Activity".
+
+c) Prossiga atribuindo o nome Atividade16 ao projeto e o br.iesb.ads023.atividade16 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade16). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activiy através no menu File->New->Activity. Salve com o nome EventActivity.
+
+h) Aba o arquivo de layout activity_event no modo de Design.
+
+i) Adicione um botao ao layout. Atribua o texto "Clique" ao botão.
+
+j) Defina um ouvinte View.OnClickListener ao botão. Faça ele exibir a mensagem "onClick disparado..." através do componente Toast.
+
+val botao = findViewById(R.id.button) as Button
+botao.setOnClickListener {
+    val toast = Toast.makeText(this, "onClick disparado...", Toast.LENGHT_SHORT)
+    toast.show()
+}
+
+k) Execute o projeto e pressione o botão. Qual foi o resultado? Pare a execução.
+
+l) Defina um ouvinte View.OnLongClickListener ao botão. Faça ele exibir a mensagem "onLongClick disparado..." através do componente Toast.
+
+botao.setOnLongClickListener {
+    val toast = Toast.makeText(this, "onLongClick disparado...", Toast.LENGHT_SHORT)
+    toast.show()
+    return@setOnLongClickListener true
+  }
+}
+
+m) Execute novamente o projeto e mantenha pressionado o botão. Qual foi o resultado? Pare a execução.
+
+n) Defina um ouvinte View.OnTouchListener ao botão. Faça ele exibir a mensagem "onTouch disparado..." através do componente Toast.
+
+botao.setOnTouchListener {
+    val toast = Toast.makeText(this, "onTouch disparado...", Toast.LENGHT_SHORT)
+    toast.show()
+    return@setOnTouchListener true
+}
+
+o) Execute novamente o projeto e toque o botão. Qual foi o resultado? Pare a execução.
+
+
+
+2. Tratar os eventos onFocusChange e onKey. 
+
+a) Acrescente um campo de texto ao layout.
+
+b) Defina um ouvite View.OnFocusChangeLister ao campo de texto. Faça ele exibir a mensagem "onFocusChange disparado..." através do componente Toast.
+
+val campo = findViewById(R.id.editText) as EditText
+campo.setOnFocusChangeListener {
+    val toast = Toast.makeText(this, "onFocusChange disparado...", Toast.LENGHT_SHORT)
+    toast.show()
+}
+
+c) Execute novamente o projeto. Faça o campo de texto ganhar e perder o foco. Qual foi o resultado? Pare a execução.
+
+d) Defina um outvinte View.OnKeyListener ao campo de texto. Quando for pressinado ENTER faça ele exibir a mensagem "onKey disparado..." e mudar o foco para o botao.
+
+campo.setOnKeyListener {  v, keyCode, event ->
+    if (keyCode == KeyEvent.KEYCODE_ENTER) {
+      val toast = Toast.makeText(getApplicationContext(), "onKey disparado...", Toast.LENGHT_SHORT)
+      toast.show()
+      botao.requestFocus()
+      return@setOnKeyListener true
+    }
+    return@setOnKeyListener false
+}
+
+e) Execute novamente o projeto. Edite o campo de texto pressionado ENTER no final. Qual foi o resultado? Pare a execução.
+
+f) Adicione os arquivos no git local através do menu VCS->Git->Add.
+
+g) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando projeto Atividade16". Acione a opção Commit.
+
+h) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

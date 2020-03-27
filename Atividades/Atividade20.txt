@@ -1,0 +1,139 @@
+1. Criar projeto no Android Studio para manipular serviços.
+
+a) Abra o aplicativo Android Studio.
+
+b) Escolha a opção "Start New Android Studio Project". Selecione a aba "Phone and Tablet" e o template "Empty Activity".
+
+c) Prossiga atribuindo o nome Atividade20 ao projeto e o br.iesb.ads023.atividade20 ao pacote.
+
+d) Verifique se a localização do projeto está indicando a pasta ADS023. Senão estiver, atualize para o caminho correto (C:\Users\matricula\Desktop\ADS023\Projetos\Atividade20). 
+
+e) Deixe a linguagem Kotlin como padrão do projeto e finalize o assistente.
+
+f) Ative o versionamento acionando o menu VCS->Enable Version Control Integration. Selecione o Git no sistema de controle de versão.
+
+g) Adicione uma Empty Activity através no menu File->New->Activity. Salve com o nome MainActivity. Não esqueça de torná-la lancável (LAUNCHER).
+
+h) Adicione na view um botão Iniciar Serviço, um botão Parar Serviço, um botão Vincular Serviço e outro Desvincular Serviço.
+
+i) Crie um ouvinte onClickListenter para cada botão. 
+
+j) Na classe MainActivity declare os métodos iniciarServico(), pararServico(), vincularServico() e desvincularServico().
+
+k) Faça o primeiro botão chamar o método iniciarServico() e o segundo botão chamar o método pararServico().
+
+l) Faça o terceiro botão chamar o método vincularServico() e o quarto botão chamar o método desvincularServico().
+
+
+
+2. Verificar o ciclo de vida da Servico Iniciado.
+
+a) Crie um serviço chamado ServicoIniciado estendendo da classe Service.
+
+class ServicoIniciado: Service() { }
+
+b) Declare o método onStartCommand() e faça ele imprimir a mensagem "onStartCommand disparado...".
+
+override fun onStartCommand() {
+  super.onStartCommand()
+  println("onStartCommand disparado...")
+}
+
+c) Declare o método onCreate() imprimir a mensagem "onCreate disparado...".
+
+d) Declare o método onDestroy() e faça ele imprimir a mensagem "onDestroy disparado...".
+
+e) Declare o método onBind() e faça ele imprimir a mensagem "onBind disparado...".
+
+f) Declare o método onUnbind() e faça ele imprimir a mensagem "onUnbind disparado...".
+
+g) Na classe MainActivity declare uma variável intentIniciado do tipo Intent.
+
+val intentIniciado: Intent? = null 
+
+h) No método iniciarServico() instancie a variável intentIniciado para receber a classe ServicoIniciado. Em seguida, chame o método startService() passando a variável intentIniciado como parâmetro.
+
+intentIniciado = Intent(this.@MainActivity, ServicoIniciado::class.java);
+startService(intentIniciado?);
+
+i) No método pararServico() chame o método stopService() passando a variável intentIniciado como parâmetro.
+
+stopService(intentIniciado);
+
+j) Execute o projeto através da opção 'Run app'.
+
+k) Na barra inferior do Antroid Studio acesse a aba Logcat e filtre as mensagens por println.
+
+l) Interaja com o app para acionando os botões Iniciar Serviço e Parar Serviço. Qual foi o resultado?
+
+m) Interrompa a execução do projeto através da opção 'Stop app'.
+
+
+
+3. Verificar o ciclo de vida da Servico Vinculado.
+
+a) Crie um serviço chamado ServicoVinculado estendendo da classe Service.
+
+b) Declare um atributo mBinder do tipo IBinder incializando com uma instância de LocalBinder()
+
+val mBinder: IBinder = LocalBinder()
+
+c) Declare uma classe LocalBinder que estende de Binder. Ela deve conter um método getService() do tipo ServicoVinculado que retorna a instância dela.
+
+ public class LocalBinder: Binder() {
+        fun getService(): ServicoVinculado {
+            return this@ServicoVinculado
+        }
+    }
+
+d) Declare o método onStartCommand() e faça ele imprimir a mensagem "onStartCommand disparado...".
+
+e) Declare o método método onCreate() imprimir a mensagem "onCreate disparado...".
+
+f) Declare o método onDestroy() e faça ele imprimir a mensagem "onDestroy disparado...".
+
+g) Declare o método onBind() e faça ele imprimir a mensagem "onBind disparado..." e retornar o atributo mBinder.
+
+h) Declare o método onUnbind() e faça ele imprimir a mensagem "onUnbind disparado...".
+
+i) Na classe MainActivity declare um atributo intentVinculado do tipo Intent.
+
+j) Declare também uma variável mBound do tipo boolean inicializando com false.
+
+k) Declare uma variável servicoVinculado do tipo ServicoVinculado.
+
+l) Declare uma variável mConnection do tipo ServiceConnection inicializando com uma instância de ServiceConnection com os métodos onServiceConnected() e onServiceDisconnected().
+
+    private mConnection = ServiceConnection() {
+
+        override fun onServiceConnected(className: ComponentName, service: IBinder) {
+            var binder = service as ServicoVinculado.LocalBinder;
+            servicoVinculado = binder.getService();
+            mBound = true;
+        }
+
+        override fun onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
+
+m) No método vincularServico() instancie a variável intentVinculado para receber a classe ServicoVinculado. Em seguida, chame o método bindService() passando a variável intentVinculado como parâmetro.
+
+intentVinculado = Intent(this@MainActivity, ServicoVinculado::class.java);
+bindService(intentVinculado, mConnection, Context.BIND_AUTO_CREATE);
+
+n) No método desvincularServico() chame o método unbindService() passando a variável mConnection como parâmetro.
+
+unbindService(mConnection);
+
+o) Execute o projeto através da opção 'Run app'.
+
+p) Na barra inferior do Antroid Studio acesse a aba Logcat e filtre as mensagens por println.
+
+q) Interaja com o app para acionando os botões Vincular Serviço e Desvincular Serviço. Qual foi o resultado?
+
+r) Interrompa a execução do projeto através da opção 'Stop app'.
+
+s) Faça o commit através do menu VCS->Commit. Marque todos os itens e acrescente ao comentário "Criando o projeto Atividade20". Acione a opção Commit.
+
+t) Envie os arquivos versionados para o git remoto acionando o menu VCS->Git->Push.

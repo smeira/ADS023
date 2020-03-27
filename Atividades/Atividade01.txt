@@ -1,0 +1,256 @@
+﻿1. Configurar o VSCode para acessar o GitHub.
+
+a) Abra o aplicativo VSCode.
+
+b) Pressione as teclas Ctrl+Shift+P e selecione o comando Git: Clone. 
+
+c) Preencha a URL https://github.com/SEU-LOGIN/ADS023.git e pressione ENTER para clonar o repositório.
+
+d) Selecione a pasta C:\Users\SUA-MATRICULA\Documentos para onde o repositório será clonado.
+
+e) Prossiga acionando a opção Open para abrir a pasta do repositório clonado.
+
+f) Pressione as teclas Ctrl+' para abrir um terminal.
+
+g) Configure o usuário e email do git.
+
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+
+
+2. Criar um formulário de login para aplicação Aluno Online.
+
+a) Crie uma pasta Atividade01 acionando a opção New Folder sobre a pasta ADS023.
+
+b) Crie um arquivo index.html acionando o menu New File com o botão direito sobre a pasta Atividade01.
+
+c) Digite a estrutura básica de uma página HTML5 (Dica: digite html:5 e pressione TAB).
+
+d) Atribua o título Aluno Online para a página.
+
+<title>Aluno Online</title>
+
+e) Importe a folha de estilo do Bootstrap antes da tag </head>.
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+f) Atribua a classe "h-100" para tag <html>.
+ 
+g) Atribua as classes "container d-flex h-100 justify-content-center align-items-center" para a tag <body>.
+
+h) Crie um formulário dentro do corpo da página. Atribua as classes m-auto p-2 w-100 e as propriedades style="max-width: 330px;" e action="lista-requerimentos.html" para a tag <form>.
+
+<form class="m-auto p-2 w-100" style="max-width: 330px;" action="lista-requerimentos.html"></form>
+
+i) Dentro do formulário crie três divisões. Atribua a classe text-center na primeira divisão e a classe form-group nas outras divisões.
+
+<div class="text-center"></div>
+<div class="form-group"></div>
+<div class="form-group"></div>
+
+j) Dentro da primeira divisão adicione a logo vermelha do IESB e um título principal. Obtenha a logo a partir do repositório jrsmjr/ADS023 no GitHub.
+
+<img class="mb-2" src="logo_vermelha.png" alt="iesb">
+<h1 class="h3 mb-3 font-weight-normal">
+  <span class="font-weight-bold">aluno</span><span class="font-weight-bold text-muted">online</span>
+</h1>
+
+k) Dentro da segunda divisão adicione um rótulo e um campo de texto para a matrícula.
+
+<label for="inputMatricula">Matrícula</label>
+<input type="number" class="form-control" id="inputMatricula" required autofocus>
+
+l) Dentro da terceira divisão adicione um rótulo e um campo de texto para senha.
+
+<label for="inputSenha">Senha</label>
+<input type="password" class="form-control" id="inputSenha" required>
+
+m) Adicione ao formulário um botão submit e um link Esqueci minha senha.
+
+<button class="btn btn-lg btn-danger btn-block" type="submit">Entrar</button>
+<p class="mt-2 text-right"><a class="text-decoration-none text-danger" href="">Esqueci minha senha</a></p>
+
+n) Adicione ao formulário um rodapé.
+
+<footer class="text-muted text-center pt-3">&copy; 2019</footer>
+
+o) Importe os scripts JS do Bootstrap antes da tag </body>.
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+p) Abra o arquivo index.hml no navegador Chrome. Ative as ferramentas do desenvolvedor pressionando a tecla F12 ou CTRL+SHIFT+I.
+
+q) Pressione as teclas Ctrl+Shift+M para ativar o modo de visualização em dispositivos móveis. Escolha um tamanho para visualizar a página.
+
+
+
+3. Criar a página de lista de requerimentos para aplicação Aluno Online.
+
+a) Crie um arquivo lista-requerimentos.html acionando o menu New File com o botão direito sobre a pasta Atividade01.
+
+b) Digite a estrutura básica de uma página HTML5.
+
+c) Atribua o título Aluno Online para a página.
+
+d) Importe a folha de estilo do Bootstrap antes da tag </head>.
+
+e) Crie uma barra de navegação dentro do corpo da página contendo a logo branca do IESB com um spam contendo o nome da aplicação, o botão de menu principal e uma divisão para os itens de menu.
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a href="" class="navbar-brand d-flex">
+    <img src="logo_branca.png" height="36px" alt="iesb">
+    <span class="pl-2 font-weight-bold ">Aluno Online</span>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler1" aria-controls="navbarToggler1" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarToggler1"></div>
+</nav>
+
+f) Dentro da divisão crie uma lista não ordenada com as classes navbar-nav mr-auto mt-2 mt-lg-0.
+
+<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+</ul>
+
+g) Crie mais uma lista não ordenada com as classes nav navbar-nav navbar-right. Adicione os links Requerimentos e Sair com as classes nav-link e active para ambos.
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="nav-item">
+    <a class="nav-link active" href="lista-requerimentos.html">Requerimentos</a>
+  </li>
+  <li class="nav-item">
+     <a class="nav-link active" href="index.html">Sair</a>
+  </li>
+</ul>
+
+h) Adicione ao corpo da página uma divisão com as classes container p-2 p-md-4.
+
+<div class="container p-2 p-md-4">
+</div>
+
+i) Adicione à divisão container uma divisão com a classe card.
+
+<div class="card">
+</div>
+
+j) Adicione à divisão card uma divisão com as classes card-header e outra com a classe card-body.
+
+<div class="card-header">
+</div>
+<div class="card-body">
+</div>
+
+k) Dentro da divisão card-header adicione o texto "Seus requerimentos" aplicando a classe font-weight-bold e um link Novo aplicando as classes btn btn-danger btn-sm float-right ligando a página novo-requerimento.html.
+
+<span class="font-weight-bold">Seus requerimentos</span>
+<a href="novo-requerimento.html" class="btn btn-danger btn-sm float-right">Novo</a>
+
+l) Dentro da divisão card-body adicione cinco divisões com a classe row. Atribua as classes font-weight-bold bg-light border-bottom para a primeira divisão, as classes pt-2 pb-2 para a segunda divisão, as classes font-weight-bold bg-light border-bottom para a terceira divisão, as classes border-bottom pt-2 pb-2 para a quarta divisão e as classes pt-2 pb-2 para a quinta divisão.
+
+<div class="row font-weight-bold bg-light border-bottom"></div>
+<div class="row pt-2 pb-2"></div>
+<div class="row font-weight-bold bg-light border-bottom"></div>
+<div class="row border-bottom pt-2 pb-2"></div>
+<div class="row pt-2 pb-2"></div>
+
+m) Dentro da primeira divisão row adicione uma divisão Curso com a classe col-md-5 e uma divisão Período com a classe col-md-2.
+
+<div class="col-md-5">Curso</div>
+<div class="col-md-2">Período</div>
+ 
+n) Dentro da segunda divisão row adicione uma divisão Análise e Desenvolvimento de Sistemas com a classe col-md-5 e uma divisão 20191 com a classe col-md-2.
+
+<div class="col-md-5">Análise e Desenvolvimento de Sistemas</div>
+<div class="col-md-2">20191</div>
+
+o) Dentro da terceira divisão row adicione uma divisão Disciplina com a classe col-md-5 e duas divisões Revisão e Situação, ambas com a classe col-md-3.
+
+<div class="col-md-5">Disciplina</div>
+<div class="col-md-2">Revisão</div>
+<div class="col-md-2">Situação</div>
+
+p) Dentro da quarta divisão row adicione uma divisão com a classe col-md-5 e duas divisões com a classe col-md-2 para exibir o requerimento da disciplina ADS023 - Programação para Dispositivos Móveis.
+
+<div class="col-md-5">ADS023 - Programação para Dispositivos Móveis</div>
+<div class="col-md-2">A1</div>
+<div class="col-md-2"><span class="badge badge-success">Deferido</span></div>
+
+q) Dentro da quinta divisão row adicione uma divisão com a classe col-md-5 e duas divisões com a classe col-md-2 para exibir o requerimento da disciplina RCT024 - Gerência de Projetos.
+
+<div class="col-md-5">RCT024 - Gerência de Projetos</div>
+<div class="col-md-2">A2</div>
+<div class="col-md-2"><span class="badge badge-danger">Indeferido</span></div>
+
+r) Adicione ao corpo da página o rodapé da pagina index.html.
+
+s) Importe os scripts JS do Bootstrap antes da tag </body>.
+
+t) Abra o arquivo lista-requerimentos.hml no navegador Chrome. Visualize a página em diversos tamanhos.
+
+
+
+4. Criar a página de novo requerimento para aplicação Aluno Online.
+
+a) Crie um arquivo novo-requerimento.html acionando o menu New File com o botão direito sobre a pasta Atividade01.
+
+b) Digite a estrutura básica de uma página HTML5.
+
+c) Atribua o título Aluno Online para a página.
+
+d) Importe a folha de estilo do Bootstrap antes da tag </head>.
+
+e) Crie uma barra de navegação dentro do corpo da página contendo a logo branca do IESB com um spam contendo o nome da aplicação, o botão de menu principal e uma divisão para os itens de menu.
+
+f) Dentro da divisão crie uma lista não ordenada com as classes navbar-nav mr-auto mt-2 mt-lg-0.
+
+g) Crie mais uma lista não ordenada com as classes nav navbar-nav navbar-right. Adicione os links Requerimentos e Sair com as classes nav-link e active para ambos.
+
+h) Adicione ao corpo da página uma divisão com as classes container p-2 p-md-12.
+
+i) Crie um formulário dentro da divisão container. Atribua as classes m-auto p-2 w-100 e a propriedade action="lista-requerimentos.html" para a tag <form>.
+
+j) Dentro do formulário crie três divisões. Atribua a classe form-group a todas elas.
+
+<p class="h5">Novo requerimento</p>
+<div class="form-group"></div>
+<div class="form-group"></div>
+<div class="form-group"></div>
+
+k) Dentro da primeira divisão adicione um rótulo e um campo de seleção para a disciplina.
+
+<label for="inputDiscipina">Disciplina</label>
+<select class="form-control" id="inputDisciplina">
+   <option value="">Selecione uma disciplina</option>
+</select>
+
+l) Dentro da segunda divisão adicione um rótulo e um campo de seleção para a prova.
+
+<label for="inputProva">Prova</label>
+<select class="form-control" id="inputProva">
+   <option value="">Selecione uma prova</option>
+</select>
+ 
+m) Dentro da terceira divisão adicione um rótulo e um campo de texto para a argumentação.
+
+<label for="inputArgumentacao">Argumentação</label>
+<textarea class="form-control" id="inputArgumentacao" required></textarea>
+
+n) Adicione ao formulário um botão submit e um link Desistir.
+
+<button class="btn btn-danger" type="submit">Salvar</button>
+<a class="btn btn-light" href="lista-requerimentos.html">Desistir</a>
+
+o) Adicione ao corpo da página o rodapé da pagina index.html.
+
+p) Importe os scripts JS do Bootstrap antes da tag </body>.
+
+q) Abra o arquivo novo-requerimento.hml no navegador Chrome. Visualize a página em diversos tamanhos.
+
+r) Pressione as teclas Ctrl+Shift+G para acessar o painel do Git. Em seguida, clique em Stage All.
+
+s) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade01).
+
+t) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.

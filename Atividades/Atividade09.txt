@@ -1,0 +1,170 @@
+1. Criar um projeto usando Ionic CLI.
+
+a) Abra o aplicativo VSCode.
+
+b) Selecione a pasta ADS023 e abra o terminal pressionando CTRL+'.
+
+c) Crie um novo projeto Ionic chamado Atividade09 usando o template em branco.
+
+d) Execute o projeto criado.
+
+e) Abra outro terminal no VSCode.
+
+
+
+2. Criar a pesistência de dados no Ionic.
+
+a) Instale os plugins cordova-sqlite-storage e @ionic-native/sqlite no projeto.
+
+ionic cordova plugin add cordova-sqlite-storage
+npm install @ionic-native/sqlite
+
+b) No arquivo app.module.ts importe o componente SQLlite.
+
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
+@NgModule({
+...
+providers: [
+    StatusBar,
+    SplashScreen,
+    SQLite,
+...
+
+c) No arquivo app.component.ts importe os componentes SQLite SQLiteObject. Em seguida, injete o objeto SQLite no construtor e implemente o método para criar o banco de dados.
+
+import { SQLite } from '@ionic-native/sqlite/ngx';
+
+...
+
+export class AppComponent {
+
+constructor(
+    private platform: Platform,
+    private statusBar: StatusBar,
+    private splashScreen: SplashScreen,
+    private sqlite: SQLite
+  ) {
+    this.initializeApp();
+}
+  
+initializeApp() {
+    this.platform.ready().then(() => {
+      this.statusBar.styleDefault();
+      this.createDatabase();
+      this.splashScreen.hide();
+    });
+}
+  
+private createDatabase(){
+  this.sqlite.create({
+    name: 'ionic.db',
+    location: 'default' // the location field is required
+  })
+  .then((db: SQLiteObject) => {
+     db.executeSql('CREATE TABLE IF NOT EXISTS alunos(id INTEGER PRIMARY KEY AUTOINCREMENT, matricula INTEGER, nome TEXT)', [])
+       .then(() => console.log('Criou tabela SQL'))
+       .catch(e => console.log(e));
+     db.executeSql('INSERT INTO alunos(matricula, nome) VALUES(?,?)', [2019001, 'JOSE']);
+     db.executeSql('INSERT INTO alunos(matricula, nome) VALUES(?,?)', [2019002, 'MARIA']);
+     db.executeSql('INSERT INTO alunos(matricula, nome) VALUES(?,?)', [2019003, 'ABRAO']);
+  })
+  .catch(error =>{
+    console.error(error);
+  });
+}
+
+d) Crie um serviço DatabaseService através do comando ionic g service database.
+
+e) No arquivo database.service.ts injete o objeto SQLite no construtor e implemente o método listar os registros de uma tabela.
+
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+...
+export class DatabaseService {
+
+  constructor(private sqlite: SQLite) { }
+  
+  lista() {
+    return this.sqlite.create({
+      name: 'ionic.db',
+      location: 'default' // the location field is required
+    })
+    .then((db: SQLiteObject) => {
+      return db.executeSql('SELECT * FROM alunos', [])
+      .then(response => {
+        let alunos: any[] = [];
+        for (let index=0; index < response.rows.length; index++) {
+          alunos.push( response.rows.item(index) );
+        }
+        return alunos;
+      })
+      .catch(() => console.log('erro ao listar'));
+    });
+  }
+}
+
+
+
+3. Criar uma listagem de itens no Ionic
+
+a) No arquivo home.page.ts importe o servico Database e injete DatabaseService no construtor.
+
+import { DatabaseService } from '../database.service';
+...
+export class HomePage {
+
+  constructor(private ds: DatabaseService) {}
+}
+
+b) Dentro da classe HomePage declare um atributo alunos e implemente o método getAlunos() que chama o método lista() do servico DatabaseService.
+
+  alunos: any[] = [];
+
+  getAlunos() {
+    this.ds.lista()
+    .then((alunos: any[]) => {
+      this.alunos = alunos;
+    })
+    .catch(error => {
+      console.error( error );
+    });
+  }
+
+c) Na pagina home.page.html exiba um botão Listar que vai exibir uma lista de alunos.
+
+<ion-content>
+  <ion-button (click)='getAlunos()'>Listar</ion-button>
+  <ion-list>
+      <ion-item *ngFor="let aluno of alunos; let i = index">
+        <ion-text>{{ aluno.matricula }} - {{ aluno.nome }}</ion-text>
+      </ion-item>
+  </ion-list>
+</ion-content>
+
+d) Efetive o commit acionando a opção Commit All. Não esqueça de por um comentário ao commit (Ex.: Criando o projeto Atividade09).
+
+e) Envie os arquivos versionados para o git remoto acionando a opção Push. Informe usuário/senha e acione a opção Sign in.
+
+
+
+4. Testar a listagem no dispositivo móvel.
+
+a) Gere um pacote de distribuição do projeto Ionic para ser implantado em um servidor Web (Dica: ionic build).
+
+b) Adicione a plataforma android com o comando capacitor (Dica: ioni capacitor add). Qual foi o resultado?
+
+c) Abra o aplicativo Android Studio.
+
+d) Escolha a opção Open Project. Selecione a pasta android gerada pelo capacitor.
+
+e) Verifique se o Gradle executou o build do projeto. Caso contrário, acione o menu Build->Make Project.
+
+f) Conecte um dispositivo a sua estação de trabalho via USB. Aceite a permissão solicitada pelo dispositivo.
+
+g) Inicie a execução do projeto. Verifique se o seu dispositivo apareceu na janela Select Deployment Target.
+
+h) Selecione o disposito e clique em Ok. 
+
+i) Aceite a instalação do Android SDK corresponte ao dispositivo. O app foi instalado no dispositivo?
+
+j) Interrompa a execução do projeto e remova o app do dispositivo.
