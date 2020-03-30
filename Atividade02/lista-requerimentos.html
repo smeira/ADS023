@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requerimento</title>
+
+    <!-- CDN Ionix -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css" />
+</head>
+
+<body>
+    <ion-app>
+        <ion-header>
+            <ion-toolbar color="danger">
+                <ion-img src="../logo_branca.png" alt="iesb" style="height: 36px; width: 52px;" slot="start"></ion-img>
+
+                <ion-title>Aluno Online</ion-title>
+
+                <ion-buttons slot="end">
+                    <ion-button href="index.html">
+                        <ion-icon name="exit"></ion-icon>
+                    </ion-button>
+                </ion-buttons>
+
+            </ion-toolbar>
+        </ion-header>
+
+        <ion-content>
+            <ion-list>
+                <ion-list-header>
+                    <ion-label>
+                        <h2><strong>Seus Requerimentos</strong></h2>
+                    </ion-label>
+                </ion-list-header>
+
+                <ion-item-divider color="light">
+                    <ion-label text-wrap>
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <h3>Período 20191</h3>
+                    </ion-label>
+                </ion-item-divider>
+
+                <ion-item>
+                    <ion-label text-wrap>
+                        <h3>ADS023 - Programação para Dispositivos Móveis</h3>
+                        <p>Prova A1</p>
+                    </ion-label>
+                    <ion-icon name="checkmark-circle" color="success" slot="end"></ion-icon>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+                        <h3>RCT024 - Gerência de Projetos</h3>
+                        <p>Prova A2</p>
+                    </ion-label>
+                    <ion-icon name="close-circle" color="danger" slot="end"></ion-icon>
+                </ion-item>
+            </ion-list>
+
+            <ion-fab vertical="bottom" horizontal="end">
+                <ion-fab-button href="novo-requerimento.html" color="danger">
+                    <ion-icon name="add"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+
+        </ion-content>
+    </ion-app>
+</body>
+
+</html>
